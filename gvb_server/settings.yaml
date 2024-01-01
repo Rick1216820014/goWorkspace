@@ -1,11 +1,14 @@
 mysql:
   host: 127.0.0.1
   port: 3306
-  
+  config: "charset=utf8mb4&parseTime=True&loc=Local"
   db: gvb_db
   user: root
   password: root
   log_level: dev
+upload:
+  size: 2
+  path: uploads/file
 logger:
   level: info
   prefix: '[gvb]'
@@ -16,3 +19,45 @@ system:
   host: 0.0.0.0
   port: 8080
   env: release
+site_info:
+  created_at: ""
+  bei_an: ""
+  title: "666"
+  qq_image: ""
+  version: ""
+  email: ""
+  wechat_image: ""
+  name: ""
+  job: ""
+  addr: ""
+  slogan: ""
+  slogan_en: ""
+  web: ""
+  bilibili_url: ""
+  gitee_url: ""
+  github_url: ""
+qq:
+  app_id: xxx
+  key: xxx
+  redirect: http://blog.fengfengzhidao.com/login?flag=qq
+qi_niu:
+  enable: false
+  access_key: xxx
+  secret_key: xxx
+  bucket: xxx
+  cdn: xxx
+  zone: z2
+  prefix: fengfeng
+  size: 6
+email:
+  host: smtp.qq.com
+  port: 465
+  user: 1216820014@qq.com
+  password: zh301255
+  default_from_email: 高瑞克
+  use_ssl: true
+  user_tls: false
+jwy:
+  secret: xxxx
+  expires: 20
+  issuer: "1234"

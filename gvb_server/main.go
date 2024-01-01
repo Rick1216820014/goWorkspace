@@ -2,7 +2,9 @@ package main
 
 import (
 	"gvb_server/core"
+	"gvb_server/flag"
 	"gvb_server/global"
+	"gvb_server/routers"
 )
 
 func main() {
@@ -11,11 +13,26 @@ func main() {
 	//fmt.Println(global.Config)
 	//初始化日志
 	global.Log = core.InitLogger()
-	global.Log.Warnln("嘻嘻嘻")
-	global.Log.Error("嘻嘻嘻")
-	global.Log.Info("嘻嘻嘻")
+	//global.Log.Warnln("嘻嘻嘻")
+	//global.Log.Error("嘻嘻嘻")
+	//global.Log.Info("嘻嘻嘻")
 
 	//连接数据库
 	global.DB = core.InitGorm()
 	//fmt.Println(global.DB)
+	//命令行参数绑定
+	option := flag.Parse()
+	if flag.IsWebStop(option) {
+		flag.SwitchOption(option)
+		return
+	}
+
+	router := routers.InitRouter()
+	addr := global.Config.System.Addr()
+	global.Log.Infof("gvb_server运行在: %s", addr)
+	err := router.Run(addr)
+	if err != nil {
+		global.Log.Fatal(err.Error())
+	}
+
 }
