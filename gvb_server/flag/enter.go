@@ -1,6 +1,9 @@
 package flag
 
-import sys_flag "flag"
+import (
+	sys_flag "flag"
+	"fmt"
+)
 
 type Oiption struct {
 	//Version bool
@@ -13,6 +16,7 @@ func Parse() Oiption {
 	db := sys_flag.Bool("db", false, "初始化数据库")
 
 	sys_flag.Parse()
+
 	return Oiption{
 
 		DB: *db,
@@ -21,6 +25,7 @@ func Parse() Oiption {
 
 // 是否停止微web项目
 func IsWebStop(option Oiption) bool {
+	fmt.Println("命令行调用-db", option.DB)
 	if option.DB {
 		//返回true表示web已经停止可以迁移
 		return true
@@ -31,6 +36,7 @@ func IsWebStop(option Oiption) bool {
 func SwitchOption(option Oiption) {
 	if option.DB {
 		Makemigrations()
+		//fmt.Println("调试")
 	}
 
 }

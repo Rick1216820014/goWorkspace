@@ -41,13 +41,13 @@ qq:
   key: xxx
   redirect: http://blog.fengfengzhidao.com/login?flag=qq
 qi_niu:
-  enable: false
-  access_key: xxx
-  secret_key: xxx
-  bucket: xxx
-  cdn: xxx
+  enable: true
+  access_key: hlumV37M3ruNNQLSomg1ofp0lJm0G8hHizxo1z_U
+  secret_key: rWaaEyXJ8YAE0KLAGax_p_ggk0LQT4IGsl99xCC5
+  bucket: gvb-rick
+  cdn: s6u7lc6ve.hn-bkt.clouddn.com/
   zone: z2
-  prefix: fengfeng
+  prefix: gvb
   size: 6
 email:
   host: smtp.qq.com

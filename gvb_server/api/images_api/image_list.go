@@ -7,6 +7,7 @@ import (
 	"gvb_server/service/common"
 )
 
+// 图片列表
 func (ImagesApi) ImageListView(c *gin.Context) {
 
 	var cr models.PageInfo
