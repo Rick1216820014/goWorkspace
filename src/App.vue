@@ -8,6 +8,11 @@
   margin: 0;
   box-sizing: 0;
 }
-@import "assets/css/iconfont.css";
+:root{
+  --active:#2184fc;
+  --text:#555;
+}
+// @import "assets/css/iconfont.css";
+// @import "font-awesome/css/font-awesome.min.css";
 </style>
 
