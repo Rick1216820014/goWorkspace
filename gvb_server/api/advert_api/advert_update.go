@@ -1,6 +1,7 @@
 package advert_api
 
 import (
+	"github.com/fatih/structs"
 	"github.com/gin-gonic/gin"
 	"gvb_server/global"
 	"gvb_server/models"
@@ -23,12 +24,15 @@ func (AdvertApi) AdvertUpdateView(c *gin.Context) {
 		return
 	}
 
-	err = global.DB.Model(&advert).Updates(map[string]any{
-		"Title":  cr.Title,
-		"Href":   cr.Href,
-		"Images": cr.Images,
-		"IsShow": cr.IsShow,
-	}).Error
+	//err = global.DB.Model(&advert).Updates(map[string]any{
+	//	"Title":  cr.Title,
+	//	"Href":   cr.Href,
+	//	"Images": cr.Images,
+	//	"IsShow": cr.IsShow,
+	//}).Error
+	//第三方包，结构体转map
+	maps := structs.Map(&cr)
+	err = global.DB.Model(&advert).Updates(maps).Error
 
 	if err != nil {
 		global.Log.Error(err)
@@ -36,5 +40,5 @@ func (AdvertApi) AdvertUpdateView(c *gin.Context) {
 		return
 	}
 
-	res.OkWithMessage("广告成功", c)
+	res.OkWithMessage("修改广告成功", c)
 }
