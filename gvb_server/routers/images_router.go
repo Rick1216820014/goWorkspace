@@ -10,4 +10,6 @@ func (router RouterGroup) ImagesRouter() {
 	router.DELETE("images", app.ImageRemoveView)
 	router.PUT("images", app.ImageUpdateView)
 
+	router.GET("image_names", app.ImageNameListView) //菜单中的图片
+
 }
