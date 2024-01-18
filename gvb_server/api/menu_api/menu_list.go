@@ -36,7 +36,9 @@ func (MenuApi) MenuListView(c *gin.Context) {
 
 	var menus []MenuResponse
 	for _, model := range menuList {
-		var banners []Banner
+		//var banners []Banner//只声明没赋初值，会默认为null
+		banners := []Banner{}
+		//var banners = make([]Banner, 0)
 		for _, banner := range menuBanners {
 			if model.ID != banner.MenuID {
 				continue

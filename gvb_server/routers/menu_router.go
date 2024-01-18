@@ -8,5 +8,6 @@ func (router RouterGroup) MenuRouter() {
 	router.POST("menus", app.MenuCreateView)
 	router.GET("menus", app.MenuListView)
 	router.PUT("menus/:id", app.MenuUpdateView)
+	router.PUT("testmenus/:id", api.ApiGroupApp.TestApi.MenuUpdateView)
 
 }
