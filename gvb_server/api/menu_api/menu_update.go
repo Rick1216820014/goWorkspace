@@ -22,11 +22,15 @@ func (MenuApi) MenuUpdateView(c *gin.Context) {
 
 	// 将 uint64 类型转换为 uint 类型
 	id := uint(num)
-
 	var menuModel models.MenuModel
 	var menuBannerModel models.MenuBannerModel
 	bannerMenuList := []models.MenuBannerModel{}
 
+	count := global.DB.Where("id = ?", id).Find(&menuModel).RowsAffected
+	if count == 0 {
+		res.FailWithMessage("不存在的菜单id", c)
+		return
+	}
 	if len(cr.ImageSortList) > 0 {
 		//mbs=menuid+bannerid+sort
 		//把待更新的图片列表保存为切片
