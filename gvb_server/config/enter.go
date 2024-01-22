@@ -11,5 +11,5 @@ type Config struct {
 	Jwy      Jwy      `yaml:"jwy"`
 	Upload   Upload   `yaml:"upload"`
 	Redis    Redis    `yaml:"redis"`
-	//ES       ES       `yaml:"es"`
+	ES       ES       `yaml:"es"`
 }
