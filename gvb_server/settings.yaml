@@ -61,3 +61,8 @@ jwy:
   secret: xxxx
   expires: 20
   issuer: "1234"
+redis:
+  ip: "127.0.0.1"
+  port: 6379
+  password: 000000
+  pool_size: 100

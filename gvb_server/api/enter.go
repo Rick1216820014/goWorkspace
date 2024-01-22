@@ -5,6 +5,7 @@ import (
 	"gvb_server/api/images_api"
 	"gvb_server/api/menu_api"
 	"gvb_server/api/settings_api"
+	"gvb_server/api/user_api"
 	"gvb_server/test"
 )
 
@@ -14,6 +15,7 @@ type ApiGroup struct {
 	AdvertApi   advert_api.AdvertApi
 	MenuApi     menu_api.MenuApi
 	TestApi     test.TestApi
+	UserApi     user_api.UserApi
 }
 
 // 全局变量ApiGroupApp,把ApiGroup实例化
