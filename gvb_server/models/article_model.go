@@ -189,6 +189,12 @@ func (a *ArticleModel) Create() (err error) {
 
 // ISExistData 是否存在该文章
 func (a ArticleModel) ISExistData() bool {
+	//boolSearch := elastic.NewBoolQuery()
+	//boolSearch.Must(
+	//	elastic.NewTermQuery("keyword", a.Title),
+	//)
+
+	//elastic.NewTermQuery 构造函数来创建一个精确匹配的查询，查询字段名为 "keyword"，查询的值为 a.Title
 	res, err := global.ESClient.
 		Search(a.Index()).
 		Query(elastic.NewTermQuery("keyword", a.Title)).
